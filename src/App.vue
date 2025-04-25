@@ -4,11 +4,14 @@
 >
 import { ref } from 'vue'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
-import { Background } from '@vue-flow/background'
 import { ControlButton, Controls } from '@vue-flow/controls'
 import { MiniMap } from '@vue-flow/minimap'
 import { initialEdges, initialNodes } from './initial-elements.js'
-import Icon from './components/icons/Icon.vue'
+import Icon from './components/Icon.vue'
+import useDragAndDrop from './composables/useDnd.js'
+import DropzoneBackground from './components/DropzoneBackground.vue'
+import Sidebar from './components/Sidebar.vue'
+
 /**
  * `useVueFlow` provides:
  * 1. a set of methods to interact with the VueFlow instance (like `fitView`, `setViewport`, `addEdges`, etc)
@@ -16,6 +19,8 @@ import Icon from './components/icons/Icon.vue'
  * 3. the internal state of the VueFlow instance (like `nodes`, `edges`, `viewport`, etc)
  */
 const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = useVueFlow()
+
+const { onDragOver, onDrop, onDragLeave, isDragOver } = useDragAndDrop()
 
 const nodes = ref(initialNodes)
 
@@ -88,43 +93,53 @@ function toggleDarkMode() {
 </script>
 
 <template>
-  <VueFlow
-    :nodes="nodes"
-    :edges="edges"
-    :class="{ dark }"
-    class="basic-flow"
-    :default-viewport="{ zoom: 1.5 }"
-    :min-zoom="0.2"
-    :max-zoom="4"
+  <div
+    class="dnd-flow"
+    @drop="onDrop"
   >
-    <Background
-      pattern-color="#aaa"
-      :gap="16"
-    />
+    <Sidebar :class="{ dark }" />
+    <VueFlow
+      :nodes="nodes"
+      :edges="edges"
+      :class="{ dark }"
+      class="basic-flow"
+      :default-viewport="{ zoom: 1.5 }"
+      :min-zoom="0.2"
+      :max-zoom="4"
+      @dragover="onDragOver"
+      @dragleave="onDragLeave"
+    >
+      <DropzoneBackground :style="{
+        backgroundColor: isDragOver ? (dark ? '#6a7a95' : '#e7f3ff') : 'transparent',
+        transition: 'background-color 0.2s ease',
+      }">
+        <p v-if="isDragOver">Drop here</p>
+      </DropzoneBackground>
 
-    <MiniMap />
+      <MiniMap />
 
-    <Controls position="top-left">
-      <ControlButton
-        title="Reset Transform"
-        @click="resetTransform"
-      >
-        <Icon name="reset" />
-      </ControlButton>
+      <Controls position="top-left">
+        <ControlButton
+          title="Reset Transform"
+          @click="resetTransform"
+        >
+          <Icon name="reset" />
+        </ControlButton>
 
-      <ControlButton
-        title="Toggle Dark Mode"
-        @click="toggleDarkMode"
-      >
-        <Icon
-          v-if="dark"
-          name="sun"
-        />
-        <Icon
-          v-else
-          name="moon"
-        />
-      </ControlButton>
-    </Controls>
-  </VueFlow>
+        <ControlButton
+          title="Toggle Dark Mode"
+          @click="toggleDarkMode"
+        >
+          <Icon
+            v-if="dark"
+            name="sun"
+          />
+          <Icon
+            v-else
+            name="moon"
+          />
+        </ControlButton>
+      </Controls>
+    </VueFlow>
+  </div>
 </template>
