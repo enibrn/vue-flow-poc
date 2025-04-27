@@ -11,6 +11,12 @@ import Icon from './components/Icon.vue'
 import useDragAndDrop from './composables/useDnd.js'
 import DropzoneBackground from './components/DropzoneBackground.vue'
 import Sidebar from './components/Sidebar.vue'
+import ShutOffValveNode from './components/nodes/ShutOffValveNode.vue'
+
+// Define custom node types
+const nodeTypes = {
+  shutOffValve: ShutOffValveNode,
+}
 
 /**
  * `useVueFlow` provides:
@@ -18,12 +24,22 @@ import Sidebar from './components/Sidebar.vue'
  * 2. a set of event-hooks to listen to VueFlow events (like `onInit`, `onNodeDragStop`, `onConnect`, etc)
  * 3. the internal state of the VueFlow instance (like `nodes`, `edges`, `viewport`, etc)
  */
-const { onInit, onNodeDragStop, onConnect, addEdges, setViewport, toObject } = useVueFlow()
+const { onInit, onNodeDragStop, onConnect, addEdges, addNodes, setViewport, toObject } = useVueFlow()
 
 const { onDragOver, onDrop, onDragLeave, isDragOver } = useDragAndDrop()
 
-const nodes = ref(initialNodes)
+// Adding a shut-off valve node example to initial nodes
+const customNodes = [
+  ...initialNodes,
+  {
+    id: 'valve-1',
+    type: 'shutOffValve',
+    data: { label: 'Shut-off Valve' },
+    position: { x: 250, y: 200 },
+  }
+];
 
+const nodes = ref(customNodes)
 const edges = ref(initialEdges)
 
 // our dark mode toggle flag
@@ -101,6 +117,7 @@ function toggleDarkMode() {
     <VueFlow
       :nodes="nodes"
       :edges="edges"
+      :node-types="nodeTypes"
       :class="{ dark }"
       class="basic-flow"
       :default-viewport="{ zoom: 1.5 }"
