@@ -13,11 +13,13 @@ import DropzoneBackground from './components/DropzoneBackground.vue'
 import Sidebar from './components/Sidebar.vue'
 import ShutOffValveNode from './components/nodes/ShutOffValveNode.vue'
 import UvLightLampNode from './components/nodes/UvLightLampNode.vue'
+import RoMembraneNode from './components/nodes/RoMembraneNode.vue'
 
 // Define custom node types
 const nodeTypes = {
   shutOffValve: ShutOffValveNode,
   uvLightLamp: UvLightLampNode,
+  roMembrane: RoMembraneNode,
 }
 
 /**
@@ -30,7 +32,7 @@ const { onInit, onNodeDragStop, onConnect, addEdges, addNodes, setViewport, toOb
 
 const { onDragOver, onDrop, onDragLeave, isDragOver } = useDragAndDrop()
 
-// Adding a shut-off valve node example to initial nodes
+// Adding examples to initial nodes
 const customNodes = [
   ...initialNodes,
   {
@@ -44,6 +46,12 @@ const customNodes = [
     type: 'uvLightLamp',
     data: { label: 'UV Light Lamp' },
     position: { x: 400, y: 200 },
+  },
+  {
+    id: 'ro-1',
+    type: 'roMembrane',
+    data: { label: 'RO Membrane' },
+    position: { x: 550, y: 200 },
   }
 ];
 

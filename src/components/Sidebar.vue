@@ -57,6 +57,20 @@ const { onDragStart } = useDragAndDrop()
         />
         <span>UV Light Lamp</span>
       </div>
+
+      <!-- RO Membrane node nella sidebar -->
+      <div
+        class="vue-flow__node-default membrane-node-item"
+        :draggable="true"
+        @dragstart="onDragStart($event, 'roMembrane')"
+      >
+        <img
+          src="@/assets/nodes/RoMembrane.png"
+          alt="RO Membrane"
+          class="membrane-preview-img"
+        />
+        <span>RO Membrane</span>
+      </div>
     </div>
   </aside>
 </template>
@@ -115,6 +129,34 @@ const { onDragStart } = useDragAndDrop()
 }
 
 :global(.dark .vue-flow__node-default.lamp-node-item) {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile per il nodo RO Membrane nella sidebar */
+.membrane-node-item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  width: 150px !important;
+}
+
+.membrane-preview-img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+
+/* Stili per adattamento dark mode */
+:global(.vue-flow__node-default.membrane-node-item) {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+:global(.dark .vue-flow__node-default.membrane-node-item) {
   background-color: #333;
   color: #fff;
 }
