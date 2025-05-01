@@ -71,6 +71,20 @@ const { onDragStart } = useDragAndDrop()
         />
         <span>RO Membrane</span>
       </div>
+
+      <!-- Carbon Post Filter node nella sidebar -->
+      <div
+        class="vue-flow__node-default carbon-node-item"
+        :draggable="true"
+        @dragstart="onDragStart($event, 'carbonPostFilter')"
+      >
+        <img
+          src="@/assets/nodes/CarbonPostFilter.png"
+          alt="Carbon Post Filter"
+          class="carbon-preview-img"
+        />
+        <span>Carbon Post Filter</span>
+      </div>
     </div>
   </aside>
 </template>
@@ -157,6 +171,34 @@ const { onDragStart } = useDragAndDrop()
 }
 
 :global(.dark .vue-flow__node-default.membrane-node-item) {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile per il nodo Carbon Post Filter nella sidebar */
+.carbon-node-item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  width: 150px !important;
+}
+
+.carbon-preview-img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+
+/* Stili per adattamento dark mode */
+:global(.vue-flow__node-default.carbon-node-item) {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+:global(.dark .vue-flow__node-default.carbon-node-item) {
   background-color: #333;
   color: #fff;
 }

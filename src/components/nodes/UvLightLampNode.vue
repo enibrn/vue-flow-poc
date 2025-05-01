@@ -42,8 +42,6 @@ defineProps<NodeProps>()
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  width: 80px;
 }
 
 .lamp-image-container {
@@ -53,8 +51,7 @@ defineProps<NodeProps>()
 }
 
 .lamp-image {
-  height: 60px;
-  width: 60px;
+  height: 70px;
   object-fit: contain;
 }
 

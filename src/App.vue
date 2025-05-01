@@ -14,12 +14,14 @@ import Sidebar from './components/Sidebar.vue'
 import ShutOffValveNode from './components/nodes/ShutOffValveNode.vue'
 import UvLightLampNode from './components/nodes/UvLightLampNode.vue'
 import RoMembraneNode from './components/nodes/RoMembraneNode.vue'
+import CarbonPostFilterNode from './components/nodes/CarbonPostFilterNode.vue'
 
 // Define custom node types
 const nodeTypes = {
   shutOffValve: ShutOffValveNode,
   uvLightLamp: UvLightLampNode,
   roMembrane: RoMembraneNode,
+  carbonPostFilter: CarbonPostFilterNode,
 }
 
 /**
@@ -52,6 +54,12 @@ const customNodes = [
     type: 'roMembrane',
     data: { label: 'RO Membrane' },
     position: { x: 550, y: 200 },
+  },
+  {
+    id: 'carbon-1',
+    type: 'carbonPostFilter',
+    data: { label: 'Carbon Post Filter' },
+    position: { x: 700, y: 200 },
   }
 ];
 

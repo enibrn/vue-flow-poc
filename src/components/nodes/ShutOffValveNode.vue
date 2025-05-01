@@ -15,13 +15,13 @@ defineProps<NodeProps>()
       id="left-top"
       type="target"
       :position="Position.Left"
-      class="left-top"
+      class="top"
     />
     <Handle
       id="left-bottom"
       type="target"
       :position="Position.Left"
-      class="left-bottom"
+      class="bottom"
     />
 
     <!-- Node image instead of standard rectangle -->
@@ -39,13 +39,13 @@ defineProps<NodeProps>()
       id="right-top"
       type="source"
       :position="Position.Right"
-      class="right-top"
+      class="top"
     />
     <Handle
       id="right-bottom"
       type="source"
       :position="Position.Right"
-      class="right-bottom"
+      class="bottom"
     />
   </div>
 </template>
@@ -56,8 +56,6 @@ defineProps<NodeProps>()
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  width: 80px;
 }
 
 .valve-image-container {
@@ -67,8 +65,7 @@ defineProps<NodeProps>()
 }
 
 .valve-image {
-  height: 60px;
-  width: 60px;
+  height: 54px;
   object-fit: contain;
 }
 
@@ -79,19 +76,11 @@ defineProps<NodeProps>()
 }
 
 /* Position the handles */
-.left-top {
-  top: 20%;
+.top {
+  top: 17%;
 }
 
-.left-bottom {
-  top: 60%;
-}
-
-.right-top {
-  top: 20%;
-}
-
-.right-bottom {
-  top: 60%;
+.bottom {
+  top: 63%;
 }
 </style>

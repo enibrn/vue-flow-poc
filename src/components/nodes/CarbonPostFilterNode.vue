@@ -9,35 +9,29 @@ defineProps<NodeProps>()
 </script>
 
 <template>
-  <div class="ro-membrane-node">
-    <!-- Left handles (2) -->
+  <div class="carbon-post-filter-node">
+    <!-- Left handle -->
     <Handle
-      id="left-top"
+      id="left"
       type="target"
       :position="Position.Left"
-      class="handle left-top"
-    />
-    <Handle
-      id="left-bottom"
-      type="target"
-      :position="Position.Left"
-      class="handle left-bottom"
+      class="left"
     />
 
-    <!-- Right handle (1) -->
+    <!-- Right handle -->
     <Handle
       id="right"
       type="source"
       :position="Position.Right"
-      class="handle right"
+      class="right"
     />
 
     <!-- Node image instead of standard rectangle -->
-    <div class="membrane-image-container">
+    <div class="filter-image-container">
       <img
-        src="@/assets/nodes/RoMembrane.png"
-        alt="RO Membrane"
-        class="membrane-image"
+        src="@/assets/nodes/CarbonPostFilter.png"
+        alt="Carbon Post Filter"
+        class="filter-image"
       />
       <div class="node-label">{{ data.label }}</div>
     </div>
@@ -45,21 +39,21 @@ defineProps<NodeProps>()
 </template>
 
 <style scoped>
-.ro-membrane-node {
+.carbon-post-filter-node {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.membrane-image-container {
+.filter-image-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.membrane-image {
-  height: 100px;
+.filter-image {
+  height: 60px;
   object-fit: contain;
 }
 
@@ -69,17 +63,11 @@ defineProps<NodeProps>()
   text-align: center;
 }
 
-/* Position the handles */
-.left-top {
-  top: 24%;
-  left: 2%;
-}
-
-.left-bottom {
-  top: 45%;
-}
-
 .right {
-  top: 43%;
+  top: 40%;
+}
+
+.left {
+  top: 40%;
 }
 </style>
