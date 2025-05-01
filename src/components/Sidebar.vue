@@ -43,6 +43,20 @@ const { onDragStart } = useDragAndDrop()
         />
         <span>Shut-off Valve</span>
       </div>
+
+      <!-- Aggiungi il nodo UV Light Lamp alla sidebar -->
+      <div
+        class="vue-flow__node-default lamp-node-item"
+        :draggable="true"
+        @dragstart="onDragStart($event, 'uvLightLamp')"
+      >
+        <img
+          src="@/assets/nodes/UvLightLamp.png"
+          alt="UV Light Lamp"
+          class="lamp-preview-img"
+        />
+        <span>UV Light Lamp</span>
+      </div>
     </div>
   </aside>
 </template>
@@ -73,6 +87,34 @@ const { onDragStart } = useDragAndDrop()
 }
 
 :global(.dark .vue-flow__node-default.valve-node-item) {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Stile per il nodo UV Light Lamp nella sidebar */
+.lamp-node-item {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  width: 150px !important;
+}
+
+.lamp-preview-img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  object-fit: contain;
+}
+
+/* Stili per adattamento dark mode */
+:global(.vue-flow__node-default.lamp-node-item) {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+:global(.dark .vue-flow__node-default.lamp-node-item) {
   background-color: #333;
   color: #fff;
 }

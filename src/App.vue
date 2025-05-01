@@ -12,10 +12,12 @@ import useDragAndDrop from './composables/useDnd.js'
 import DropzoneBackground from './components/DropzoneBackground.vue'
 import Sidebar from './components/Sidebar.vue'
 import ShutOffValveNode from './components/nodes/ShutOffValveNode.vue'
+import UvLightLampNode from './components/nodes/UvLightLampNode.vue'
 
 // Define custom node types
 const nodeTypes = {
   shutOffValve: ShutOffValveNode,
+  uvLightLamp: UvLightLampNode,
 }
 
 /**
@@ -36,6 +38,12 @@ const customNodes = [
     type: 'shutOffValve',
     data: { label: 'Shut-off Valve' },
     position: { x: 250, y: 200 },
+  },
+  {
+    id: 'uvlamp-1',
+    type: 'uvLightLamp',
+    data: { label: 'UV Light Lamp' },
+    position: { x: 400, y: 200 },
   }
 ];
 
