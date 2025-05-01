@@ -62,17 +62,6 @@ defineProps<NodeProps>()
   font-size: 10px;
   margin-top: 5px;
   text-align: center;
-  color: #333;
-  font-weight: bold;
-}
-
-/* Handle styles */
-.handle {
-  width: 10px;
-  height: 10px;
-  background: #1a192b;
-  border: 2px solid white;
-  border-radius: 50%;
 }
 
 /* Position the handles horizontally */
@@ -82,10 +71,5 @@ defineProps<NodeProps>()
 
 .top-right {
   left: 70%;
-}
-
-/* Dark mode support */
-:deep(.dark) .node-label {
-  color: #fff;
 }
 </style>
