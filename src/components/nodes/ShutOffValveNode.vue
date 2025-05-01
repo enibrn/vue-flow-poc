@@ -27,7 +27,7 @@ defineProps<NodeProps>()
     <!-- Node image instead of standard rectangle -->
     <div class="valve-image-container">
       <img
-        src="@/assets/nodes/ShutOffValveNode.png"
+        src="@/assets/nodes/ShutOffValve.png"
         alt="Shut Off Valve"
         class="valve-image"
       />

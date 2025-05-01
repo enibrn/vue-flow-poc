@@ -37,7 +37,7 @@ const { onDragStart } = useDragAndDrop()
         @dragstart="onDragStart($event, 'shutOffValve')"
       >
         <img
-          src="@/assets/nodes/ShutOffValveNode.png"
+          src="@/assets/nodes/ShutOffValve.png"
           alt="Shut-off Valve"
           class="valve-preview-img"
         />
