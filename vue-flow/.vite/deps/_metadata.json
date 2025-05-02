@@ -1,0 +1,58 @@
+{
+  "hash": "3c82a124",
+  "configHash": "0b7994f4",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "f899bef8",
+  "optimized": {
+    "@vue-flow/background": {
+      "src": "../../node_modules/@vue-flow/background/dist/vue-flow-background.mjs",
+      "file": "@vue-flow_background.js",
+      "fileHash": "e221b87b",
+      "needsInterop": false
+    },
+    "@vue-flow/controls": {
+      "src": "../../node_modules/@vue-flow/controls/dist/vue-flow-controls.mjs",
+      "file": "@vue-flow_controls.js",
+      "fileHash": "573524b9",
+      "needsInterop": false
+    },
+    "@vue-flow/core": {
+      "src": "../../node_modules/@vue-flow/core/dist/vue-flow-core.mjs",
+      "file": "@vue-flow_core.js",
+      "fileHash": "cf335c00",
+      "needsInterop": false
+    },
+    "@vue-flow/minimap": {
+      "src": "../../node_modules/@vue-flow/minimap/dist/vue-flow-minimap.mjs",
+      "file": "@vue-flow_minimap.js",
+      "fileHash": "c6b73049",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "9b584e78",
+      "needsInterop": false
+    },
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "180366fc",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "4dec1a01",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-MDLXEQP7": {
+      "file": "chunk-MDLXEQP7.js"
+    },
+    "chunk-IJV5NOMV": {
+      "file": "chunk-IJV5NOMV.js"
+    }
+  }
+}
